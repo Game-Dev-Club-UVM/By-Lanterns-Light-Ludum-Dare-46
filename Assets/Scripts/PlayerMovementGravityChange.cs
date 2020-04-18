@@ -23,9 +23,17 @@ public class PlayerMovementGravityChange : MonoBehaviour
     bool jumpRequest = false;
 
     //better gravity variables
-    [SerializeField] private float fallMultiplier = 2.5f;
-    [SerializeField] private float lowJumpMultiplier = 2f;
-    [SerializeField] private float jumpingGravityMultiplier = 2f;
+    [SerializeField] private float fallMultiplier = 5f;
+    [SerializeField] private float lowJumpMultiplier = 5f;
+    [SerializeField] private float jumpingGravityMultiplier = 2.5f;
+    [SerializeField] private float jumpForce = 600f;
+
+    [SerializeField] private float powerJumpFallMultiplier = 4f;
+    [SerializeField] private float powerJumpLowJumpMultiplier = 4f;
+    [SerializeField] private float powerJumpJumpingGravityMultiplier = 1.5f;
+    [SerializeField] private float powerJumpingJumpForce = 700f;
+
+    [SerializeField] private bool powerJumping = false;
 
     //dashing
     [SerializeField] private DashState dashState;
@@ -86,10 +94,8 @@ public class PlayerMovementGravityChange : MonoBehaviour
         }
 
         //power jump
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-
-        }
+        powerJumping = Input.GetKey(KeyCode.Z);
+       
     }
 
     // Fixed Update called after Update every fixed frame
@@ -105,23 +111,47 @@ public class PlayerMovementGravityChange : MonoBehaviour
         if (jumpRequest)
         {
             //rb.velocity += Vector2.up * jumpVelocity;
+            if (powerJumping)
+            {
+                character.setJumpForce(powerJumpingJumpForce);
+            } else
+            {
+                character.setJumpForce(jumpForce);
+            }
             rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
             jumpRequest = false;
         }
         //better gravity for jumping 
-        if(rb.velocity.y < 0)
+        if (powerJumping)
         {
-            rb.gravityScale = fallMultiplier;
-        } else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            rb.gravityScale = lowJumpMultiplier;
+            if (rb.velocity.y < 0)
+            {
+                rb.gravityScale = powerJumpFallMultiplier;
+            }
+            else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                rb.gravityScale = powerJumpLowJumpMultiplier;
+            }
+            else
+            {
+                rb.gravityScale = powerJumpJumpingGravityMultiplier;
+            }
         }
         else
         {
-            rb.gravityScale = jumpingGravityMultiplier;
+            if (rb.velocity.y < 0)
+            {
+                rb.gravityScale = fallMultiplier;
+            }
+            else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                rb.gravityScale = lowJumpMultiplier;
+            }
+            else
+            {
+                rb.gravityScale = jumpingGravityMultiplier;
+            }
         }
-        //dash
-
     }
 
     bool isGrounded()
