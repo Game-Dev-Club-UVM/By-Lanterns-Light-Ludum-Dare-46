@@ -6,9 +6,11 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform endPosition;
-   // [SerializeField] private Transform 
-    
 
+    [SerializeField] private GameObject player;
+
+    // [SerializeField] private Transform 
+    
     // Update is called once per frame
     void Update()
     {
