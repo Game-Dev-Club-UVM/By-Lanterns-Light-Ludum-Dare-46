@@ -20,6 +20,8 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
+	private PlayerMovementGravityChange playerScript;
+
 	[Header("Events")]
 	[Space]
 
@@ -34,6 +36,8 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+
+		playerScript = GetComponent<PlayerMovementGravityChange>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -55,6 +59,7 @@ public class CharacterController2D : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
+				playerScript.resetDash(true);
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}

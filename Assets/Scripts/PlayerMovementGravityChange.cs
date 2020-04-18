@@ -65,18 +65,18 @@ public class PlayerMovementGravityChange : MonoBehaviour
                 {
                     if (Input.GetAxis("Horizontal") > 0)
                     {
-                        rb.velocity = new Vector2(dashSpeed, 0.7f);
+                        rb.velocity = new Vector2(dashSpeed, 0.75f);
                     }
                     else if (Input.GetAxis("Horizontal") < 0)
                     {
-                        rb.velocity = new Vector2(-dashSpeed, 0.7f);
+                        rb.velocity = new Vector2(-dashSpeed, 0.75f);
                     }
                     dashState = DashState.Dashing;
                 }
                 break;
             case DashState.Dashing:
                 dashTimer += Time.deltaTime * 3;
-                rb.velocity = new Vector2(rb.velocity.x, 0.7f);
+                rb.velocity = new Vector2(rb.velocity.x, 0.75f);
                 if (dashTimer >= maxDash)
                 {
                     dashTimer = maxDash;
@@ -84,8 +84,9 @@ public class PlayerMovementGravityChange : MonoBehaviour
                 }
                 break;
             case DashState.Cooldown:
-                dashTimer -= Time.deltaTime * 3;
-                if (isGrounded() || dashTimer <= 0)
+                //dashTimer -= Time.deltaTime * 3;
+                // See if we need to add anything that should reset dashes or to allow multiple dashes
+                if (isGrounded())
                 {
                     dashTimer = 0;
                     dashState = DashState.Ready;
@@ -168,6 +169,15 @@ public class PlayerMovementGravityChange : MonoBehaviour
 
         return false;
     }
+
+    public void resetDash(bool reset)
+    {
+        if (reset)
+        {
+            dashState = DashState.Ready;
+            dashTimer = 0;
+        }
+    } 
 }
 
 public enum DashState
