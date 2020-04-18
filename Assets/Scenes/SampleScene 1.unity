@@ -8949,11 +8949,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6126963163574436010, guid: e8a8416980c68a84e9d72e1803a7f466,
-        type: 3}
-      propertyPath: powerJumpJumpingGravityMultiplier
-      value: 1.15
-      objectReference: {fileID: 0}
     - target: {fileID: 6126963163574436014, guid: e8a8416980c68a84e9d72e1803a7f466,
         type: 3}
       propertyPath: m_Name
