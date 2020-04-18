@@ -13,7 +13,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private LayerMask groundLayer = 9;
 
     //movement speeds
-    [Range(0,1)]
+    [Range(0, 1)]
     [SerializeField] private float moveVelocity = 1;
     [Range(1, 10)]
     [SerializeField] private float jumpVelocity = 5;
@@ -40,6 +40,11 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private float dashTimer;
     [SerializeField] private float maxDash = 1f;
     [SerializeField] private float dashSpeed = 30f;
+
+    //wall jumping
+    // TODO: Implement wall jumping, figure out a nice way that they can't use the same wall over and over again
+    // unless we want it to look very Super Meatboy like with wall jumping and sliding but that doesn't seem needed
+    [SerializeField] private bool wallJumpEnabled = false;
 
     private void Awake()
     {
@@ -95,8 +100,8 @@ public class PlayerMovementGravityChange : MonoBehaviour
         }
 
         //power jump
-        powerJumping = Input.GetKey(KeyCode.Z);
-       
+        powerJumping = Input.GetKey(KeyCode.LeftControl);
+
     }
 
     // Fixed Update called after Update every fixed frame
@@ -172,12 +177,12 @@ public class PlayerMovementGravityChange : MonoBehaviour
 
     public void resetDash(bool reset)
     {
-        if (reset)
+        if (reset && dashTimer == maxDash)
         {
             dashState = DashState.Ready;
             dashTimer = 0;
         }
-    } 
+    }
 }
 
 public enum DashState
