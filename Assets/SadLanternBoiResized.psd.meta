@@ -38,6 +38,18 @@ TextureImporter:
   - first:
       213: 5599747687577041035
     second: SadLanternBoiResized_11
+  - first:
+      213: 129087323223032699
+    second: SadLanternBoiResized_0
+  - first:
+      213: 2011616094164512304
+    second: SadLanternBoiResized_2
+  - first:
+      213: 7447584736199426343
+    second: SadLanternBoiResized_3
+  - first:
+      213: 9152822871355824369
+    second: SadLanternBoiResized_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -81,7 +93,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 212
+  spritePixelsToUnits: 850
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -162,82 +174,40 @@ TextureImporter:
       name: SadLanternBoiResized_0
       rect:
         serializedVersion: 2
-        x: 83
-        y: 50
-        width: 137
-        height: 433
+        x: 333
+        y: 202
+        width: 545
+        height: 1728
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6eb18ab7e964cc00800000000000000
-      internalID: 919976667877850735
+      spriteID: b7307bd8c3c9ac100800000000000000
+      internalID: 129087323223032699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SadLanternBoiResized_2
+      name: SadLanternBoiResized_10
       rect:
         serializedVersion: 2
-        x: 297
-        y: 451
-        width: 7
-        height: 4
+        x: 1267
+        y: 702
+        width: 513
+        height: 679
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc64aef232f7d77d0800000000000000
-      internalID: -2919037194361747763
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SadLanternBoiResized_3
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 446
-        width: 9
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52668c2c8c32011f0800000000000000
-      internalID: -1076320965773203931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SadLanternBoiResized_7
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 175
-        width: 129
-        height: 171
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cd39adf54155e500800000000000000
-      internalID: 424835100906700231
+      spriteID: 6a4215c243eb79cb0800000000000000
+      internalID: -4857204541804698458
       vertices: []
       indices: 
       edges: []
