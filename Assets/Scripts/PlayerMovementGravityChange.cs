@@ -33,8 +33,6 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private float maxDash = 1f;
     [SerializeField] private float dashSpeed = 30f;
 
-    [SerializeField] private Vector2 savedVelocity;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -55,10 +53,8 @@ public class PlayerMovementGravityChange : MonoBehaviour
         {
             case DashState.Ready:
                 var isDashKeyDown = Input.GetKeyDown(KeyCode.LeftShift);
-                if (isDashKeyDown)
+                if (isDashKeyDown && Input.GetAxis("Horizontal") != 0)
                 {
-                    savedVelocity = new Vector2(rb.velocity.x, 0.7f);
-
                     if (Input.GetAxis("Horizontal") > 0)
                     {
                         rb.velocity = new Vector2(dashSpeed, 0.7f);
@@ -76,7 +72,6 @@ public class PlayerMovementGravityChange : MonoBehaviour
                 if (dashTimer >= maxDash)
                 {
                     dashTimer = maxDash;
-                    rb.velocity = savedVelocity;
                     dashState = DashState.Cooldown;
                 }
                 break;
