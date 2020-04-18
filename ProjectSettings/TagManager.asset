@@ -17,7 +17,7 @@ TagManager:
   - Ground
   - Objects
   - Player
-  - 
+  - Lantern
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Lantern
+    uniqueID: 3653330261
     locked: 0
