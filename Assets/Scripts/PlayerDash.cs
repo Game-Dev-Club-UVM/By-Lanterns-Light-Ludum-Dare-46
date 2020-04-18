@@ -8,6 +8,7 @@ public class PlayerDash : MonoBehaviour
     public float dashTimer;
     public float maxDash = 1f;
     public float dashSpeed = 30f;
+    public float dashLength = 3f;
     private Rigidbody2D rb;
 
     public Vector2 savedVelocity;
@@ -25,21 +26,22 @@ public class PlayerDash : MonoBehaviour
                 var isDashKeyDown = Input.GetKeyDown(KeyCode.LeftShift);
                 if (isDashKeyDown)
                 {
-                    savedVelocity = new Vector2(rb.velocity.x, 0);
+                    savedVelocity = new Vector2(rb.velocity.x, 0.01f);
 
                     if (Input.GetAxis("Horizontal") > 0)
                     {
-                        rb.velocity = new Vector2(dashSpeed, 0);
+                        rb.velocity = new Vector2(dashSpeed, 0.01f);
                     }
                     else if (Input.GetAxis("Horizontal") < 0)
                     {
-                        rb.velocity = new Vector2(-dashSpeed, 0);
+                        rb.velocity = new Vector2(-dashSpeed, 0.01f);
                     }
                     dashState = DashState.Dashing;
                 }
                 break;
             case DashState.Dashing:
                 dashTimer += Time.deltaTime * 3;
+                rb.velocity = new Vector2(rb.velocity.x, 0f);
                 if (dashTimer >= maxDash)
                 {
                     dashTimer = maxDash;
@@ -57,10 +59,4 @@ public class PlayerDash : MonoBehaviour
                 break;
         }
     }
-}
-public enum DashState
-{
-    Ready,
-    Dashing,
-    Cooldown
 }

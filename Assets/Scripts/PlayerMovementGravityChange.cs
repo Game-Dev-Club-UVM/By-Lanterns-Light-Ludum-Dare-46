@@ -27,6 +27,14 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private float lowJumpMultiplier = 2f;
     [SerializeField] private float jumpingGravityMultiplier = 2f;
 
+    //dashing
+    [SerializeField] private DashState dashState;
+    [SerializeField] private float dashTimer;
+    [SerializeField] private float maxDash = 1f;
+    [SerializeField] private float dashSpeed = 30f;
+
+    [SerializeField] private Vector2 savedVelocity;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,9 +45,50 @@ public class PlayerMovementGravityChange : MonoBehaviour
     {
 
         //move horizontal 
-        character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Crouch"), Input.GetButtonDown("Jump"));
+        if (dashState != DashState.Dashing)
+        {
+            character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Crouch"), Input.GetButtonDown("Jump"));
+        }
 
         //dash
+        switch (dashState)
+        {
+            case DashState.Ready:
+                var isDashKeyDown = Input.GetKeyDown(KeyCode.LeftShift);
+                if (isDashKeyDown)
+                {
+                    savedVelocity = new Vector2(rb.velocity.x, 0.7f);
+
+                    if (Input.GetAxis("Horizontal") > 0)
+                    {
+                        rb.velocity = new Vector2(dashSpeed, 0.7f);
+                    }
+                    else if (Input.GetAxis("Horizontal") < 0)
+                    {
+                        rb.velocity = new Vector2(-dashSpeed, 0.7f);
+                    }
+                    dashState = DashState.Dashing;
+                }
+                break;
+            case DashState.Dashing:
+                dashTimer += Time.deltaTime * 3;
+                rb.velocity = new Vector2(rb.velocity.x, 0.7f);
+                if (dashTimer >= maxDash)
+                {
+                    dashTimer = maxDash;
+                    rb.velocity = savedVelocity;
+                    dashState = DashState.Cooldown;
+                }
+                break;
+            case DashState.Cooldown:
+                dashTimer -= Time.deltaTime * 3;
+                if (isGrounded() || dashTimer <= 0)
+                {
+                    dashTimer = 0;
+                    dashState = DashState.Ready;
+                }
+                break;
+        }
     }
 
     // Fixed Update called after Update every fixed frame
@@ -88,4 +137,11 @@ public class PlayerMovementGravityChange : MonoBehaviour
 
         return false;
     }
+}
+
+public enum DashState
+{
+    Ready,
+    Dashing,
+    Cooldown
 }
