@@ -8,9 +8,13 @@ public class PlayerMovement : MonoBehaviour
 {
     //componets
     Rigidbody2D rb;
+    //Ground Layers
+    [SerializeField] private LayerMask groundLayer = 9;
 
     //movement speeds
+    [Range(0,1)]
     [SerializeField] private float moveVelocity = 1;
+    [Range(1, 10)]
     [SerializeField] private float jumpVelocity = 5;
 
     //input request
@@ -47,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         //move horizontal 
         if (moveRequest)
         {
-            rb.AddForce(Vector2.right * moveVelocity * Input.GetAxis("Horizontal") * Time.fixedDeltaTime);
+            rb.AddForce(Vector2.right * moveVelocity * Input.GetAxis("Horizontal") , ForceMode2D.Impulse);
             moveRequest = false;
         }
         //jump
@@ -75,6 +79,16 @@ public class PlayerMovement : MonoBehaviour
 
     bool isGrounded()
     {
-        return true;
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 1.0f;
+
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        if (hit.collider != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
