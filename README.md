@@ -8,3 +8,5 @@ Window->Package Manager
 then search for each package below and install
 	2D Sprite
 	2D Tilemap Editor
+	Lightweight RP
+
