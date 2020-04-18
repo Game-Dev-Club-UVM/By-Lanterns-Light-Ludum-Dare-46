@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-
+[RequireComponent(typeof(CharacterController2D))]
 public class PlayerMovement : MonoBehaviour
 {
     //componets
     Rigidbody2D rb;
+    CharacterController2D character;
     //Ground Layers
     [SerializeField] private LayerMask groundLayer = 9;
 
@@ -28,20 +29,15 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        character = GetComponent<CharacterController2D>();
     }
     // Update is called once per frame
     private void Update()
     {
+
         //move horizontal 
-        if (Input.GetAxis("Horizontal") != 0)
-        {
-            moveRequest = true;
-        }
-        //jump
-        if (Input.GetButtonDown("Jump") && isGrounded())
-        {
-            jumpRequest = true;
-        }
+        character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Crouch"), Input.GetButtonDown("Jump"));
+
         //dash
     }
 
@@ -51,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         //move horizontal 
         if (moveRequest)
         {
-            rb.AddForce(Vector2.right * moveVelocity * Input.GetAxis("Horizontal") , ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * moveVelocity * Input.GetAxis("Horizontal"), ForceMode2D.Impulse);
             moveRequest = false;
         }
         //jump
