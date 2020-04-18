@@ -84,6 +84,12 @@ public class PlayerMovementGravityChange : MonoBehaviour
                 }
                 break;
         }
+
+        //power jump
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+
+        }
     }
 
     // Fixed Update called after Update every fixed frame
