@@ -12,7 +12,7 @@ public class lanternMovement : MonoBehaviour
     [Header("Follow Mouse")]
     [SerializeField] float delay = 5;
 
-
+    //change
     // Update is called once per frame
     void Update() 
     {
