@@ -27,15 +27,15 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetBool("onGround", onGround);
 
         // Jumping trigger animations
-        if (Input.GetButtonDown("Jump") && onGround)
+        if (Input.GetButtonDown("Jump"))
         {
             if (Input.GetKey(KeyCode.LeftControl))
             {
-                animator.SetBool("powerJump", true);
+                animator.SetTrigger("powerJump");
             }
             else
             {
-                animator.SetBool("jump", true);
+                animator.SetTrigger("jump");
             }
             onGround = false;
             animator.SetBool("onGround", false);
