@@ -18,7 +18,7 @@ public class PlayerAnimator : MonoBehaviour
         charController = GetComponentInParent<CharacterController2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Check if on ground
         animator.SetBool("onGround", charController.getGrounded());
