@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.Animations;
 [RequireComponent(typeof(PlayerMovementGravityChange))]
 public class CharacterController2D : MonoBehaviour
 {

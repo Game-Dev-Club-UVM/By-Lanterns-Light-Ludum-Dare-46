@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lantern
+  - Oil Bar
   layers:
   - Default
   - TransparentFX

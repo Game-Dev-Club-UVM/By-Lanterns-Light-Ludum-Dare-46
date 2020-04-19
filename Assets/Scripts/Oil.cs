@@ -10,6 +10,7 @@ public class Oil : MonoBehaviour
 
     private void Start()
     {
+        oilBar = GameObject.FindGameObjectWithTag("Oil Bar").GetComponent<OilBar>();
         oilBar.SetMaxHealth(maxOil);
     }
     public bool isOutOfOil()
