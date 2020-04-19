@@ -39,6 +39,11 @@ public class CharacterController2D : MonoBehaviour
 		return m_Grounded;
 	}
 
+	public bool getCrouched()
+	{
+		return m_wasCrouching;
+	}
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();

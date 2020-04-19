@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Oil : MonoBehaviour
 {
-    [SerializeField] int maxOil = 100;
-    [SerializeField] int currentOil = 100;
+    [SerializeField] float maxOil = 100;
+    [SerializeField] float currentOil = 100;
     [SerializeField] OilBar oilBar;
 
     private void Start()
@@ -25,7 +25,7 @@ public class Oil : MonoBehaviour
             return false;
         }
     }
-    public void setOil(int amount)
+    public void setOil(float amount)
     {
         if(amount > maxOil)
         {
@@ -39,12 +39,12 @@ public class Oil : MonoBehaviour
         isOutOfOil();
     }
 
-    public int getOil()
+    public float getOil()
     {
         return currentOil;
     }
 
-    public void removeOil(int amount)
+    public void removeOil(float amount)
     {
         currentOil -= amount;
         if(currentOil < 0)

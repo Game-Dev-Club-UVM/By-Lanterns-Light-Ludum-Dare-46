@@ -12,13 +12,13 @@ public class OilBar : MonoBehaviour
     {
         slider = GetComponent<Slider>();
     }
-    public void SetMaxHealth(int health)
+    public void SetMaxHealth(float health)
     {
         slider.maxValue = health;
         slider.value = health;
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(float health)
     {
         slider.value = health;
     }
