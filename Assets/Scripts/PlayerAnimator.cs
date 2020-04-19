@@ -42,39 +42,39 @@ public class PlayerAnimator : MonoBehaviour
             //animator.SetBool("onGround", false);
         }
         // Run animations
-        else if (Input.GetAxis("Horizontal") != 0 && !Input.GetKey(KeyCode.LeftControl) && animator.GetBool("onGround"))
+        else if (Input.GetAxis("Horizontal") != 0 && !charController.getCrouched() && animator.GetBool("onGround"))
         {
             animator.SetBool("isCrouching", false);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", true);
         } 
-        else if (Input.GetAxis("Horizontal") != 0 && Input.GetKey(KeyCode.LeftControl) && animator.GetBool("onGround"))
+        else if (Input.GetAxis("Horizontal") != 0 && charController.getCrouched() && animator.GetBool("onGround"))
         {
             animator.SetBool("isCrouching", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", true);
         }
         // Walk animation transistions
-        else if (Input.GetAxis("Horizontal") == 0 && !Input.GetKey(KeyCode.LeftControl) && animator.GetBool("onGround")) 
+        else if (Input.GetAxis("Horizontal") == 0 && !charController.getCrouched() && animator.GetBool("onGround")) 
         {
             animator.SetBool("isCrouching", false);
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", true);
         }
-        else if (Input.GetAxis("Horizontal") == 0 && Input.GetKey(KeyCode.LeftControl) && animator.GetBool("onGround"))
+        else if (Input.GetAxis("Horizontal") == 0 && charController.getCrouched() && animator.GetBool("onGround"))
         {
             animator.SetBool("isCrouching", true);
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", true);
         }
         // Idle animations
-        else if (!Input.GetKey(KeyCode.LeftControl) && animator.GetBool("onGround"))
+        else if (!charController.getCrouched() && animator.GetBool("onGround"))
         {
             animator.SetBool("isCrouching", false);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
         }
-        else if (Input.GetKey(KeyCode.LeftControl) && animator.GetBool("onGround"))
+        else if (charController.getCrouched() && animator.GetBool("onGround"))
         {
             animator.SetBool("isCrouching", true);
             animator.SetBool("isWalking", false);
