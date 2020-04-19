@@ -31,11 +31,11 @@ public class PlayerAnimator : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftControl))
             {
-                animator.SetBool("powerJump", true);
+                animator.SetTrigger("powerJump");
             }
             else
             {
-                animator.SetBool("jump", true);
+                animator.SetTrigger("jump");
             }
             onGround = false;
             animator.SetBool("onGround", false);
