@@ -27,7 +27,7 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetBool("onGround", onGround);
 
         // Jumping trigger animations
-        if (Input.GetButtonDown("Jump") && onGround)
+        if (Input.GetButtonDown("Jump"))
         {
             if (Input.GetKey(KeyCode.LeftControl))
             {
