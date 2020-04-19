@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CharacterController2D))]
+[RequireComponent(typeof(Oil))]
 public class PlayerMovementGravityChange : MonoBehaviour
 {
     //componets
@@ -41,6 +42,11 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private float maxDash = 1f;
     [SerializeField] private float dashSpeed = 30f;
 
+    //oil
+    Oil oilMeter;
+    [SerializeField] private int dashOilCost = 10;
+    [SerializeField] private int powerJumpOilCost = 10;
+
     //wall jumping
     // TODO: Implement wall jumping, figure out a nice way that they can't use the same wall over and over again
     // unless we want it to look very Super Meatboy like with wall jumping and sliding but that doesn't seem needed
@@ -50,6 +56,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         character = GetComponent<CharacterController2D>();
+        oilMeter = GameObject.Find("Lantern").GetComponent<Oil>();
     }
     // Update is called once per frame
     private void Update()
@@ -68,6 +75,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
                 var isDashKeyDown = Input.GetKeyDown(KeyCode.LeftShift);
                 if (isDashKeyDown && Input.GetAxis("Horizontal") != 0)
                 {
+                    oilMeter.removeOil(dashOilCost);
                     if (Input.GetAxis("Horizontal") > 0)
                     {
                         rb.velocity = new Vector2(dashSpeed, 0.75f);
@@ -130,6 +138,11 @@ public class PlayerMovementGravityChange : MonoBehaviour
         //better gravity for jumping 
         if (powerJumping)
         {
+            if (rb.velocity.y == 0 && Input.GetButtonDown("Jump"))
+            {
+                oilMeter.removeOil(powerJumpOilCost);
+            }
+
             if (rb.velocity.y < 0)
             {
                 rb.gravityScale = powerJumpFallMultiplier;

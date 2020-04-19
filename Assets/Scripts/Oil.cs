@@ -6,8 +6,12 @@ public class Oil : MonoBehaviour
 {
     [SerializeField] int maxOil = 100;
     [SerializeField] int currentOil = 100;
+    [SerializeField] OilBar oilBar;
 
-
+    private void Start()
+    {
+        oilBar.SetMaxHealth(maxOil);
+    }
     public bool isOutOfOil()
     {
         if(currentOil <= 0)
@@ -30,6 +34,7 @@ public class Oil : MonoBehaviour
         {
             currentOil = amount;
         }
+        oilBar.SetHealth(currentOil);
         isOutOfOil();
     }
 
@@ -41,6 +46,11 @@ public class Oil : MonoBehaviour
     public void removeOil(int amount)
     {
         currentOil -= amount;
+        if(currentOil < 0)
+        {
+            currentOil = 0;
+        }
+        oilBar.SetHealth(currentOil);
         isOutOfOil();
     }
 
