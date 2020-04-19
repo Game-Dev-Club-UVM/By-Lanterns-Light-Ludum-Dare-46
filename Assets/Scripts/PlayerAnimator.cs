@@ -18,8 +18,26 @@ public class PlayerAnimator : MonoBehaviour
         charController = GetComponentInParent<CharacterController2D>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        if (Input.GetKey(KeyCode.F))
+        {
+            animator.SetBool("lanternFloat", true);
+        } 
+        else
+        {
+            animator.SetBool("lanternFloat", false);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Horizontal") != 0)
+        {
+            animator.SetBool("dashing", true);
+        }
+        else
+        {
+            animator.SetBool("dashing", false);
+        }
+
         // Check if on ground
         animator.SetBool("onGround", charController.getGrounded());
         if (animator.GetBool("onGround"))
@@ -39,6 +57,7 @@ public class PlayerAnimator : MonoBehaviour
             {
                 animator.SetBool("jump", true);
             }
+            animator.SetBool("dashing", false);
             //animator.SetBool("onGround", false);
         }
         // Run animations
@@ -47,12 +66,14 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetBool("isCrouching", false);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", true);
+            animator.SetBool("dashing", false);
         } 
         else if (Input.GetAxis("Horizontal") != 0 && charController.getCrouched() && animator.GetBool("onGround"))
         {
             animator.SetBool("isCrouching", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", true);
+            animator.SetBool("dashing", false);
         }
         // Walk animation transistions
         else if (Input.GetAxis("Horizontal") == 0 && !charController.getCrouched() && animator.GetBool("onGround")) 
@@ -60,12 +81,14 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetBool("isCrouching", false);
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", true);
+            animator.SetBool("dashing", false);
         }
         else if (Input.GetAxis("Horizontal") == 0 && charController.getCrouched() && animator.GetBool("onGround"))
         {
             animator.SetBool("isCrouching", true);
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", true);
+            animator.SetBool("dashing", false);
         }
         // Idle animations
         else if (!charController.getCrouched() && animator.GetBool("onGround"))
@@ -73,12 +96,14 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetBool("isCrouching", false);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
+            animator.SetBool("dashing", false);
         }
         else if (charController.getCrouched() && animator.GetBool("onGround"))
         {
             animator.SetBool("isCrouching", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
+            animator.SetBool("dashing", false);
         }
     }
 }
