@@ -21876,7 +21876,7 @@ PrefabInstance:
     - target: {fileID: -4802981159316326965, guid: a2ff41fdb3429ac4691b10fb0aa3833a,
         type: 3}
       propertyPath: m_Name
-      value: SadLanternBoi Animator2
+      value: PlayerGFX
       objectReference: {fileID: 0}
     - target: {fileID: -4760177593181422795, guid: a2ff41fdb3429ac4691b10fb0aa3833a,
         type: 3}
