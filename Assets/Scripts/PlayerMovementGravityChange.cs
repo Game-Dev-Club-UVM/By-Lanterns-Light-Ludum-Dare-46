@@ -47,6 +47,10 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private int dashOilCost = 10;
     [SerializeField] private int powerJumpOilCost = 10;
 
+    //lantern jump
+    [SerializeField] private int lanternDashOilCost = 1;
+    [SerializeField] private float lanternDashSpeed = 15f;
+
     //wall jumping
     // TODO: Implement wall jumping, figure out a nice way that they can't use the same wall over and over again
     // unless we want it to look very Super Meatboy like with wall jumping and sliding but that doesn't seem needed
@@ -63,7 +67,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
     {
 
         //move horizontal 
-        if (dashState != DashState.Dashing)
+        if (dashState != DashState.Dashing && !Input.GetKeyDown(KeyCode.F))
         {
             character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Crouch"), Input.GetButtonDown("Jump"));
         }
@@ -72,8 +76,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
         switch (dashState)
         {
             case DashState.Ready:
-                var isDashKeyDown = Input.GetKeyDown(KeyCode.LeftShift);
-                if (isDashKeyDown && Input.GetAxis("Horizontal") != 0)
+                if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") != 0)
                 {
                     oilMeter.removeOil(dashOilCost);
                     if (Input.GetAxis("Horizontal") > 0)
@@ -105,6 +108,13 @@ public class PlayerMovementGravityChange : MonoBehaviour
                     dashState = DashState.Ready;
                 }
                 break;
+        }
+
+        //lantern dash
+        if (Input.GetKey(KeyCode.F))
+        {
+            oilMeter.removeOil(lanternDashOilCost * Time.deltaTime);
+            rb.velocity = (oilMeter.gameObject.transform.position - transform.position).normalized * lanternDashSpeed;
         }
 
         //power jump
