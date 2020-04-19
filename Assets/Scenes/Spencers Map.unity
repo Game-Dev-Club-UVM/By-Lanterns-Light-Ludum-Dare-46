@@ -3893,6 +3893,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6126963165092788423, guid: e8a8416980c68a84e9d72e1803a7f466,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 919976667877850735, guid: 11b0262a29f434440bf8cecd01abf785,
+        type: 3}
+    - target: {fileID: 6126963165092788423, guid: e8a8416980c68a84e9d72e1803a7f466,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.64117646
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126963165092788423, guid: e8a8416980c68a84e9d72e1803a7f466,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.032941
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126963165092788423, guid: e8a8416980c68a84e9d72e1803a7f466,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8a8416980c68a84e9d72e1803a7f466, type: 3}
 --- !u!1 &233759254
@@ -15770,7 +15791,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 2.0317647}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1123374982
@@ -21632,5 +21653,26 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 319795134}
+    - target: {fileID: 8440519623251703632, guid: f43d82f15b72319478801eade3aae2c3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4857204541804698458, guid: 11b0262a29f434440bf8cecd01abf785,
+        type: 3}
+    - target: {fileID: 8440519623251703632, guid: f43d82f15b72319478801eade3aae2c3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.6035294
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440519623251703632, guid: f43d82f15b72319478801eade3aae2c3,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.79882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440519623251703632, guid: f43d82f15b72319478801eade3aae2c3,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f43d82f15b72319478801eade3aae2c3, type: 3}
