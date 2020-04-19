@@ -31,11 +31,11 @@ public class PlayerAnimator : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftControl))
             {
-                animator.SetTrigger("powerJump");
+                animator.SetBool("powerJump", true);
             }
             else
             {
-                animator.SetTrigger("jump");
+                animator.SetBool("jump", true);
             }
             onGround = false;
             animator.SetBool("onGround", false);
@@ -43,24 +43,32 @@ public class PlayerAnimator : MonoBehaviour
         // Run animations
         else if (Input.GetAxis("Horizontal") != 0 && !Input.GetKey(KeyCode.LeftControl) && onGround)
         {
+            animator.SetBool("powerJump", false);
+            animator.SetBool("jump", false);
             animator.SetBool("isCrouching", false);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", true);
         } 
         else if (Input.GetAxis("Horizontal") != 0 && Input.GetKey(KeyCode.LeftControl) && onGround)
         {
+            animator.SetBool("powerJump", false);
+            animator.SetBool("jump", false);
             animator.SetBool("isCrouching", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", true);
         }
         // Walk animation transistions
         else if (Input.GetAxis("Horizontal") == 0 && !Input.GetKey(KeyCode.LeftControl) && onGround) {
+            animator.SetBool("powerJump", false);
+            animator.SetBool("jump", false);
             animator.SetBool("isCrouching", false);
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", true);
         }
         else if (Input.GetAxis("Horizontal") == 0 && Input.GetKey(KeyCode.LeftControl) && onGround)
         {
+            animator.SetBool("powerJump", false);
+            animator.SetBool("jump", false);
             animator.SetBool("isCrouching", true);
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", true);
@@ -68,12 +76,16 @@ public class PlayerAnimator : MonoBehaviour
         // Idle animations
         else if (!Input.GetKey(KeyCode.LeftControl) && onGround)
         {
+            animator.SetBool("powerJump", false);
+            animator.SetBool("jump", false);
             animator.SetBool("isCrouching", false);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
         }
         else if (Input.GetKey(KeyCode.LeftControl) && onGround)
         {
+            animator.SetBool("powerJump", false);
+            animator.SetBool("jump", false);
             animator.SetBool("isCrouching", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
