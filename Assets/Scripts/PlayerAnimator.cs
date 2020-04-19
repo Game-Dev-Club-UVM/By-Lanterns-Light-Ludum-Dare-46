@@ -26,8 +26,22 @@ public class PlayerAnimator : MonoBehaviour
         onGround = charController.getGrounded();
         animator.SetBool("onGround", onGround);
 
+        // Jumping trigger animations
+        if (Input.GetButtonDown("Jump") && onGround)
+        {
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                animator.SetTrigger("powerJump");
+            }
+            else
+            {
+                animator.SetTrigger("jump");
+            }
+            onGround = false;
+            animator.SetBool("onGround", false);
+        }
         // Run animations
-        if (Input.GetAxis("Horizontal") != 0 && !Input.GetKey(KeyCode.LeftControl) && onGround)
+        else if (Input.GetAxis("Horizontal") != 0 && !Input.GetKey(KeyCode.LeftControl) && onGround)
         {
             animator.SetBool("isCrouching", false);
             animator.SetBool("isWalking", false);
@@ -58,25 +72,11 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
         }
-        else if(Input.GetKey(KeyCode.LeftControl) && onGround)
+        else if (Input.GetKey(KeyCode.LeftControl) && onGround)
         {
             animator.SetBool("isCrouching", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
-        } 
-        // Jumping trigger animations
-        else if (Input.GetButtonDown("Jump") && onGround)
-        {
-            if (Input.GetKey(KeyCode.LeftControl))
-            {
-                animator.SetTrigger("powerJump");
-            }
-            else
-            {
-                animator.SetTrigger("jump");
-            }
-            onGround = false;
-            animator.SetBool("onGround", false);
         }
     }
 }
