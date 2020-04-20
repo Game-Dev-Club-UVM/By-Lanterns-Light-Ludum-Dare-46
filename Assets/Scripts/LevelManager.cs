@@ -4,24 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private Transform startPosition;
-    [SerializeField] private Transform endPosition;
-
     [SerializeField] private GameObject player;
 
-    [SerializeField] private Transform CheckPoint;
+    [SerializeField] private Vector3 CheckPoint;
 
     private void Start()
     {
-        CheckPoint = player.transform;
+        player = GameObject.FindGameObjectWithTag("Player");
+        SetCheckPoint();
     }
 
-    public void ReloadScence()
+    public void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        player.transform.position = CheckPoint;
     }
     public void SetCheckPoint()
     {
-        CheckPoint = player.transform;
+        CheckPoint = player.transform.position;
     }
 }

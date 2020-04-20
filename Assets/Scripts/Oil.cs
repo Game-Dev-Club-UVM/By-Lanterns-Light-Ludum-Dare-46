@@ -7,18 +7,20 @@ public class Oil : MonoBehaviour
     [SerializeField] float maxOil = 100;
     [SerializeField] float currentOil = 100;
     [SerializeField] OilBar oilBar;
-
+    [SerializeField] LevelManager levelManager;
     private void Start()
     {
         oilBar = GameObject.FindGameObjectWithTag("Oil Bar").GetComponent<OilBar>();
         oilBar.SetMaxHealth(maxOil);
         oilBar.SetHealth(currentOil);
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
     public bool isOutOfOil()
     {
         if(currentOil <= 0)
         {
-            ReloadScence();
+            levelManager.ReloadScene();
+            setOil(maxOil);
             return true;
         }
         else
@@ -73,7 +75,7 @@ public class Oil : MonoBehaviour
         oilBar.SetHealth(currentOil);
         isOutOfOil();
     }
-    public void ReloadScence()
+    public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
