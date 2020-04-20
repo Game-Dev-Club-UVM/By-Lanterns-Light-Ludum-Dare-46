@@ -6006,7 +6006,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.09, y: 18.7}
@@ -6022,6 +6022,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.03, y: 18.9}
   m_EdgeRadius: 0
+--- !u!114 &476994251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476994247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c58aed6f151d5b4eac85c105e6dc2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lantern: {fileID: 0}
 --- !u!1001 &543552435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25688,7 +25701,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7475661204302047726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197f05d88af59a4498e4eb74c626d28e, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!70 &7475661204302047728
