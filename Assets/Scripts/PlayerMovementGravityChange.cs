@@ -124,7 +124,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
         {
             cooldown = true;
         }
-        else if (lanternDashTimer > 0 && cooldown)
+        else if (lanternDashTimer > 0)
         {
             lanternDashTimer -= Time.deltaTime;
         } 
