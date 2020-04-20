@@ -5,12 +5,14 @@ using UnityEngine;
 public class SolFlame : MonoBehaviour
 {
     private GameObject lantern;
+    AudioSource audioSource;
     private GameObject image;
     bool collected = false;
     [SerializeField] int increaseAmount = 20; 
     private void Awake()
     {
         lantern = GameObject.FindGameObjectWithTag("Lantern");
+        audioSource = GetComponent<AudioSource>();
         image = this.transform.GetChild(0).gameObject;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,6 +21,7 @@ public class SolFlame : MonoBehaviour
         {
             lantern.GetComponent<Oil>().increaseMaxOil(increaseAmount);
             collected = true;
+            audioSource.Play();
             StartCoroutine(refillOil());
             image.SetActive(false);
         }
