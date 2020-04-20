@@ -15,12 +15,13 @@ public class PlayerAnimator : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
+
         charController = GetComponentInParent<CharacterController2D>();
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetButton("Pull"))
         {
             animator.SetBool("lanternFloat", true);
         } 
@@ -29,7 +30,7 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetBool("lanternFloat", false);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Horizontal") != 0)
+        if (Input.GetButton("Dash") && Input.GetAxis("Horizontal") != 0)
         {
             animator.SetBool("dashing", true);
         }
