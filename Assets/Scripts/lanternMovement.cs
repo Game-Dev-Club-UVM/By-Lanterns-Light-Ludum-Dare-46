@@ -5,7 +5,7 @@ using UnityEngine;
 public class lanternMovement : MonoBehaviour
 {
     [Header("Follow Player")]
-    [SerializeField] GameObject player;
+    GameObject player;
     [SerializeField] Vector3 offset;
     [SerializeField] float speed = 5;
 

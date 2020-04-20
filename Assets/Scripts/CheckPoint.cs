@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class CheckPoint : MonoBehaviour
 {
-    [SerializeField] private LevelManager levelManager;
-    [SerializeField] private GameObject lantern;
+    private LevelManager levelManager;
+    private GameObject lantern;
     [SerializeField] private int oilRefilAmount = 5;
 
     [SerializeField] private GameObject flame;

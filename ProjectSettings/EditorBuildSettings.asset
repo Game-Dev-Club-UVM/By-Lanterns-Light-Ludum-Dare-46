@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu Screen.unity
+    guid: ee84ae8580876fb48ad07c63d60cf1eb
+  - enabled: 1
     path: Assets/Scenes/Robbys Level.unity
     guid: 15574d594c32ab949b1ab9940909872a
+  - enabled: 1
+    path: Assets/Scenes/Spencers Map.unity
+    guid: be9f2ca9534133a49a3b6ac7143a9120
   m_configObjects: {}

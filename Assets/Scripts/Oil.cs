@@ -6,8 +6,8 @@ public class Oil : MonoBehaviour
 {
     [SerializeField] float maxOil = 100;
     [SerializeField] float currentOil = 100;
-    [SerializeField] OilBar oilBar;
-    [SerializeField] LevelManager levelManager;
+    OilBar oilBar;
+    LevelManager levelManager;
     private void Start()
     {
         oilBar = GameObject.FindGameObjectWithTag("Oil Bar").GetComponent<OilBar>();
