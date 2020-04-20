@@ -7,9 +7,9 @@ public class Oil : MonoBehaviour
     [SerializeField] OilData oilData;
     OilBar oilBar;
     LevelManager levelManager;
-    private void Start()
+    private void Awake()
     {
-        oilBar = GameObject.FindGameObjectWithTag("Oil Bar").GetComponent<OilBar>();
+        oilBar = GameObject.FindGameObjectWithTag("OilBar").GetComponent<OilBar>();
         oilBar.SetMaxHealth(oilData.maxOil);
         oilBar.SetHealth(oilData.currentOil);
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();

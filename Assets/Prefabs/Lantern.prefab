@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855de4c5c9e3e9943b6ad1d0cfbbd3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   offset: {x: 1.4, y: 2, z: 0}
   speed: 5
   delay: 5
@@ -63,9 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3781a7a34cdd349afe7642db82c650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxOil: 100
-  currentOil: 100
-  oilBar: {fileID: 0}
+  oilData: {fileID: 11400000, guid: 9a58696c1af4fd346872215495550b41, type: 2}
 --- !u!61 &737044531971866304
 BoxCollider2D:
   m_ObjectHideFlags: 0

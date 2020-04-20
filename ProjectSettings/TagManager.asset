@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lantern
-  - Oil Bar
+  - LevelManager
+  - OilBar
+  - GroundRock
+  - GroundGrass
+  - GroundWood
   layers:
   - Default
   - TransparentFX
