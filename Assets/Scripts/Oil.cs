@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 public class Oil : MonoBehaviour
 {
     [SerializeField] OilData oilData;
-    OilBar oilBar;
+    [SerializeField] OilBar oilBar;
     LevelManager levelManager;
-    private void Awake()
+    private void Start()
     {
         oilBar = GameObject.FindGameObjectWithTag("OilBar").GetComponent<OilBar>();
         oilBar.SetMaxHealth(oilData.maxOil);

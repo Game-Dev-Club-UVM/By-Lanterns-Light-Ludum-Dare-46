@@ -5159,7 +5159,7 @@ GameObject:
   - component: {fileID: 1447669852210320104}
   m_Layer: 5
   m_Name: Oil Bar
-  m_TagString: Oil Bar
+  m_TagString: OilBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5294,7 +5294,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ceb18c64e61be0468dbf1709284dfc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {fileID: 0}
-  endPosition: {fileID: 0}
   player: {fileID: 0}
-  CheckPoint: {fileID: 0}
+  CheckPoint: {x: 0, y: 0, z: 0}
