@@ -9,16 +9,19 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
-    // [SerializeField] private Transform 
-    
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private Transform CheckPoint;
+
+    private void Start()
     {
-        
+        CheckPoint = player.transform;
     }
 
     public void ReloadScence()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void SetCheckPoint()
+    {
+        CheckPoint = player.transform;
     }
 }

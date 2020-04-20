@@ -12,6 +12,7 @@ public class Oil : MonoBehaviour
     {
         oilBar = GameObject.FindGameObjectWithTag("Oil Bar").GetComponent<OilBar>();
         oilBar.SetMaxHealth(maxOil);
+        oilBar.SetHealth(currentOil);
     }
     public bool isOutOfOil()
     {
@@ -51,10 +52,27 @@ public class Oil : MonoBehaviour
         {
             currentOil = 0;
         }
+        else if(currentOil > maxOil)
+        {
+            currentOil = maxOil;
+        }
         oilBar.SetHealth(currentOil);
         isOutOfOil();
     }
-
+    public void addOil(float amount)
+    {
+        currentOil += amount;
+        if (currentOil < 0)
+        {
+            currentOil = 0;
+        }
+        else if (currentOil > maxOil)
+        {
+            currentOil = maxOil;
+        }
+        oilBar.SetHealth(currentOil);
+        isOutOfOil();
+    }
     public void ReloadScence()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
