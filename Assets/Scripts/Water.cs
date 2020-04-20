@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Water : MonoBehaviour
 {
-    private GameObject lantern;
-    [SerializeField] private static int dmgOnEnter = 10;
-    [SerializeField] private static int dmgOnStay = 1;
+    private static GameObject lantern;
+    [SerializeField] private int dmgOnEnter = 10;
+    [SerializeField] private int dmgOnStay = 1;
     private void Awake()
     {
         lantern = GameObject.FindGameObjectWithTag("Lantern");
