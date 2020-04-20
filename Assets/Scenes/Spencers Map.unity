@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 95918808}
   - component: {fileID: 95918811}
   - component: {fileID: 95918810}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Tilemap Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6845,7 +6845,7 @@ GameObject:
   - component: {fileID: 811183043}
   - component: {fileID: 811183042}
   - component: {fileID: 811183044}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tilemap Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -23,6 +23,7 @@ public class Water : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name + " Hit water");
         if (collision.tag == "Player" || collision.tag == "Lantern")
         {
             lantern.GetComponent<Oil>().removeOil(dmgOnEnter);
