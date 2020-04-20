@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -965,6 +965,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1112189758}
+        m_MethodName: setUpOilData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &832643131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,6 +1293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1112189756}
   - component: {fileID: 1112189757}
+  - component: {fileID: 1112189758}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -1316,6 +1328,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: Robbys Level
+--- !u!114 &1112189758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112189755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adedd05746773a94eb4cf9bb9f27a12d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oilData: {fileID: 11400000, guid: 9a58696c1af4fd346872215495550b41, type: 2}
 --- !u!1 &1414456381
 GameObject:
   m_ObjectHideFlags: 0

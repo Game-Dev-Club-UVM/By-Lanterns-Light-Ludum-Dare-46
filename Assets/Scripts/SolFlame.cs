@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class SolFlame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject lantern;
+    private GameObject image;
+    bool collected = false;
+    [SerializeField] int increaseAmount = 20; 
+    private void Awake()
     {
-        
+        lantern = GameObject.FindGameObjectWithTag("Lantern");
+        image = this.transform.GetChild(0).gameObject;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (!collected && collision.tag == "Player")
+        {
+            lantern.GetComponent<Oil>().increaseMaxOil(increaseAmount);
+            collected = true;
+            StartCoroutine(refillOil());
+            image.SetActive(false);
+        }
+    }
+    IEnumerator refillOil()
+    {
+        for(int i =0; i < increaseAmount; i++)
+        {
+            yield return new WaitForSeconds(.2f);
+            lantern.GetComponent<Oil>().addOil(1);
+        } 
     }
 }

@@ -4,23 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Oil : MonoBehaviour
 {
-    [SerializeField] float maxOil = 100;
-    [SerializeField] float currentOil = 100;
+    [SerializeField] OilData oilData;
     OilBar oilBar;
     LevelManager levelManager;
     private void Start()
     {
         oilBar = GameObject.FindGameObjectWithTag("Oil Bar").GetComponent<OilBar>();
-        oilBar.SetMaxHealth(maxOil);
-        oilBar.SetHealth(currentOil);
+        oilBar.SetMaxHealth(oilData.maxOil);
+        oilBar.SetHealth(oilData.currentOil);
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
     public bool isOutOfOil()
     {
-        if(currentOil <= 0)
+        if(oilData.currentOil <= 0)
         {
             levelManager.ReloadScene();
-            setOil(maxOil);
+            setOil(oilData.maxOil);
             return true;
         }
         else
@@ -30,49 +29,55 @@ public class Oil : MonoBehaviour
     }
     public void setOil(float amount)
     {
-        if(amount > maxOil)
+        if(amount > oilData.maxOil)
         {
-            currentOil = maxOil;
+            oilData.currentOil = oilData.maxOil;
         }
         else
         {
-            currentOil = amount;
+            oilData.currentOil = amount;
         }
-        oilBar.SetHealth(currentOil);
+        oilBar.SetHealth(oilData.currentOil);
         isOutOfOil();
+    }
+
+    public void increaseMaxOil(float amount)
+    {
+        oilData.maxOil += amount;
+        oilBar.SetMaxHealth(oilData.maxOil);
     }
 
     public float getOil()
     {
-        return currentOil;
+        return oilData.currentOil;
     }
 
     public void removeOil(float amount)
     {
-        currentOil -= amount;
-        if(currentOil < 0)
+        oilData.currentOil -= amount;
+        if(oilData.currentOil < 0)
         {
-            currentOil = 0;
+            oilData.currentOil = 0;
         }
-        else if(currentOil > maxOil)
+        else if(oilData.currentOil > oilData.maxOil)
         {
-            currentOil = maxOil;
+            oilData.currentOil = oilData.maxOil;
         }
-        oilBar.SetHealth(currentOil);
+        oilBar.SetHealth(oilData.currentOil);
         isOutOfOil();
     }
     public void addOil(float amount)
     {
-        currentOil += amount;
-        if (currentOil < 0)
+        oilData.currentOil += amount;
+        if (oilData.currentOil < 0)
         {
-            currentOil = 0;
+            oilData.currentOil = 0;
         }
-        else if (currentOil > maxOil)
+        else if (oilData.currentOil > oilData.maxOil)
         {
-            currentOil = maxOil;
+            oilData.currentOil = oilData.maxOil;
         }
-        oilBar.SetHealth(currentOil);
+        oilBar.SetHealth(oilData.currentOil);
         isOutOfOil();
     }
     public void ReloadScene()
