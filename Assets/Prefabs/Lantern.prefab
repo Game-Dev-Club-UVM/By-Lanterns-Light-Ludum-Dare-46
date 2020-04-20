@@ -65,6 +65,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oilData: {fileID: 11400000, guid: 9a58696c1af4fd346872215495550b41, type: 2}
   oilBar: {fileID: 0}
+  timeSpent: 0
+  deathTime: 3
+  radiusNormal: 4
+  radiusDeath: 100
+  intensityNormal: 1
+  intensityDeath: 8
+  timeSpent2: 0
+  deathTime2: 1
 --- !u!61 &737044531971866304
 BoxCollider2D:
   m_ObjectHideFlags: 0
