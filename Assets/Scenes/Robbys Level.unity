@@ -6185,6 +6185,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2180268093237863154, guid: f43d82f15b72319478801eade3aae2c3,
+        type: 3}
+      propertyPath: oilData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a58696c1af4fd346872215495550b41,
+        type: 2}
     - target: {fileID: 8440519622627078545, guid: f43d82f15b72319478801eade3aae2c3,
         type: 3}
       propertyPath: m_Name
