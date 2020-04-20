@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WitchChasing : MonoBehaviour
 {
+    public float speed = 5;
     private GameObject player;
 
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class WitchChasing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
     }
 }
