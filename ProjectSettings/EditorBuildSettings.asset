@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Robbys Level.unity
     guid: 15574d594c32ab949b1ab9940909872a
   - enabled: 1
+    path: Assets/Scenes/JohnsLevelAgain.unity
+    guid: 11746bd3b5d41b5439070df949a3b59e
+  - enabled: 1
     path: Assets/Scenes/Spencers Map.unity
     guid: be9f2ca9534133a49a3b6ac7143a9120
+  - enabled: 1
+    path: Assets/Scenes/Alex's Level.unity
+    guid: 29b08f73da99606469ee0ade952fc364
   m_configObjects: {}
