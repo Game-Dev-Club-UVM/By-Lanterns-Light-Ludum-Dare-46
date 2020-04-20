@@ -24885,8 +24885,8 @@ MonoBehaviour:
   - {fileID: 5993089293734506284}
   - {fileID: 6489299005960393306}
   m_Bounds:
-    m_Center: {x: 0.0027665198, y: -0.063643515, z: 0}
-    m_Extent: {x: 0.34552616, y: 0.6540671, z: 0}
+    m_Center: {x: 0.000016123056, y: 0.0005196929, z: 0}
+    m_Extent: {x: 0.34552616, y: 0.7182303, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &5969351412793972563
@@ -24900,8 +24900,8 @@ GameObject:
   - component: {fileID: 545138640750369572}
   - component: {fileID: 8309152062854084765}
   - component: {fileID: 5341721939359805047}
-  - component: {fileID: 5969351412793972565}
   - component: {fileID: 5969351412793972564}
+  - component: {fileID: 5969351412793972565}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -24909,19 +24909,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5969351412793972564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5969351412793972563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197f05d88af59a4498e4eb74c626d28e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &5969351412793972565
+--- !u!61 &5969351412793972564
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24931,10 +24919,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.000012308359, y: -0.4119063}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -24945,8 +24933,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6035294, y: 0.79882354}
+  m_Size: {x: 0.6910523, y: 0.7178327}
   m_EdgeRadius: 0
+--- !u!114 &5969351412793972565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5969351412793972563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c58aed6f151d5b4eac85c105e6dc2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lantern: {fileID: 1023423489}
 --- !u!4 &5993089293734506284
 Transform:
   m_ObjectHideFlags: 0
