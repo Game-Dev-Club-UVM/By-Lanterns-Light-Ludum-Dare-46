@@ -46,6 +46,9 @@ public class PlayerMovementGravityChange : MonoBehaviour
     Oil oilMeter;
     [SerializeField] private int dashOilCost = 10;
     [SerializeField] private int powerJumpOilCost = 10;
+    [SerializeField] private float lanternDashTimer = 0f;
+    [SerializeField] private float maxLanternDash = 3f;
+    [SerializeField] private bool cooldown = false;
 
     //lantern jump
     [SerializeField] private int lanternDashOilCost = 1;
@@ -67,7 +70,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
     {
 
         //move horizontal 
-        if (dashState != DashState.Dashing && !Input.GetKeyDown(KeyCode.F))
+        if (dashState != DashState.Dashing && !Input.GetKeyDown(KeyCode.F) || cooldown)
         {
             character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Crouch"), Input.GetButtonDown("Jump"));
         }
@@ -111,10 +114,23 @@ public class PlayerMovementGravityChange : MonoBehaviour
         }
 
         //lantern dash
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) && !cooldown && lanternDashTimer <= maxLanternDash)
         {
             oilMeter.removeOil(lanternDashOilCost * Time.deltaTime);
             rb.velocity = (oilMeter.gameObject.transform.position - transform.position).normalized * lanternDashSpeed;
+            lanternDashTimer += Time.deltaTime;
+        }
+        else if (lanternDashTimer >= maxLanternDash && !cooldown)
+        {
+            cooldown = true;
+        }
+        else if (lanternDashTimer > 0 && cooldown)
+        {
+            lanternDashTimer -= Time.deltaTime;
+        } 
+        else
+        {
+            cooldown = false;
         }
 
         //power jump
