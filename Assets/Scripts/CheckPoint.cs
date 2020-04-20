@@ -7,6 +7,7 @@ public class CheckPoint : MonoBehaviour
 {
     private LevelManager levelManager;
     private GameObject lantern;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] private int oilRefilAmount = 5;
 
     [SerializeField] private GameObject flame;
@@ -37,6 +38,7 @@ public class CheckPoint : MonoBehaviour
             {
                 lastCheckPoint.ResetCheckPoint();
             }
+            audioSource.Play();
             lastCheckPoint = this;
         }
     }
@@ -45,5 +47,6 @@ public class CheckPoint : MonoBehaviour
     {
         activated = false;
         flame.SetActive(false);
+        audioSource.Stop();
     }
 }
