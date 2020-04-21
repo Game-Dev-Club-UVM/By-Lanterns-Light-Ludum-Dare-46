@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class CheckPoint : MonoBehaviour
 {
+    private AudioSource audioSource;
     private LevelManager levelManager;
     private GameObject lantern;
     [SerializeField] private int oilRefilAmount = 5;
@@ -14,6 +15,7 @@ public class CheckPoint : MonoBehaviour
     [SerializeField] private bool activated = false;
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         lantern = GameObject.FindGameObjectWithTag("Lantern");
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         flame.SetActive(false);
@@ -37,12 +39,14 @@ public class CheckPoint : MonoBehaviour
             {
                 lastCheckPoint.ResetCheckPoint();
             }
+            audioSource.Play();
             lastCheckPoint = this;
         }
     }
 
     public void ResetCheckPoint()
     {
+        audioSource.Stop();
         activated = false;
         flame.SetActive(false);
     }
