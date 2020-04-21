@@ -169,6 +169,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(0f, 0f);
+            audio.Stop();
         }
     }
 
