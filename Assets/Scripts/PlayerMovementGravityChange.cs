@@ -54,6 +54,11 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private int lanternDashOilCost = 1;
     [SerializeField] private float lanternDashSpeed = 15f;
 
+    //powers
+    [SerializeField] private bool dash = false;
+    [SerializeField] private bool powerJump = false;
+    [SerializeField] private bool pull = false;
+
     //wall jumping
     // TODO: Implement wall jumping, figure out a nice way that they can't use the same wall over and over again
     // unless we want it to look very Super Meatboy like with wall jumping and sliding but that doesn't seem needed
@@ -76,65 +81,74 @@ public class PlayerMovementGravityChange : MonoBehaviour
         }
 
         //dash
-        switch (dashState)
+        if (dash)
         {
-            case DashState.Ready:
-                if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") != 0)
-                {
-                    oilMeter.removeOil(dashOilCost);
-                    if (Input.GetAxis("Horizontal") > 0)
+            switch (dashState)
+            {
+                case DashState.Ready:
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") != 0)
                     {
-                        rb.velocity = new Vector2(dashSpeed, 0.75f);
+                        oilMeter.removeOil(dashOilCost);
+                        if (Input.GetAxis("Horizontal") > 0)
+                        {
+                            rb.velocity = new Vector2(dashSpeed, 0.75f);
+                        }
+                        else if (Input.GetAxis("Horizontal") < 0)
+                        {
+                            rb.velocity = new Vector2(-dashSpeed, 0.75f);
+                        }
+                        dashState = DashState.Dashing;
                     }
-                    else if (Input.GetAxis("Horizontal") < 0)
+                    break;
+                case DashState.Dashing:
+                    dashTimer += Time.deltaTime * 3;
+                    rb.velocity = new Vector2(rb.velocity.x, 0.75f);
+                    if (dashTimer >= maxDash)
                     {
-                        rb.velocity = new Vector2(-dashSpeed, 0.75f);
+                        dashTimer = maxDash;
+                        dashState = DashState.Cooldown;
                     }
-                    dashState = DashState.Dashing;
-                }
-                break;
-            case DashState.Dashing:
-                dashTimer += Time.deltaTime * 3;
-                rb.velocity = new Vector2(rb.velocity.x, 0.75f);
-                if (dashTimer >= maxDash)
-                {
-                    dashTimer = maxDash;
-                    dashState = DashState.Cooldown;
-                }
-                break;
-            case DashState.Cooldown:
-                //dashTimer -= Time.deltaTime * 3;
-                // See if we need to add anything that should reset dashes or to allow multiple dashes
-                if (isGrounded())
-                {
-                    dashTimer = 0;
-                    dashState = DashState.Ready;
-                }
-                break;
+                    break;
+                case DashState.Cooldown:
+                    //dashTimer -= Time.deltaTime * 3;
+                    // See if we need to add anything that should reset dashes or to allow multiple dashes
+                    if (isGrounded())
+                    {
+                        dashTimer = 0;
+                        dashState = DashState.Ready;
+                    }
+                    break;
+            }
         }
 
         //lantern dash
-        if (Input.GetKey(KeyCode.F) && !cooldown && lanternDashTimer <= maxLanternDash)
+        if (pull)
         {
-            oilMeter.removeOil(lanternDashOilCost * Time.deltaTime);
-            rb.velocity = (oilMeter.gameObject.transform.position - transform.position).normalized * lanternDashSpeed;
-            lanternDashTimer += Time.deltaTime;
-        }
-        else if (lanternDashTimer >= maxLanternDash && !cooldown)
-        {
-            cooldown = true;
-        }
-        else if (lanternDashTimer > 0)
-        {
-            lanternDashTimer -= Time.deltaTime;
-        } 
-        else
-        {
-            cooldown = false;
+            if (Input.GetKey(KeyCode.F) && !cooldown && lanternDashTimer <= maxLanternDash)
+            {
+                oilMeter.removeOil(lanternDashOilCost * Time.deltaTime);
+                rb.velocity = (oilMeter.gameObject.transform.position - transform.position).normalized * lanternDashSpeed;
+                lanternDashTimer += Time.deltaTime;
+            }
+            else if (lanternDashTimer >= maxLanternDash && !cooldown)
+            {
+                cooldown = true;
+            }
+            else if (lanternDashTimer > 0)
+            {
+                lanternDashTimer -= Time.deltaTime;
+            }
+            else
+            {
+                cooldown = false;
+            }
         }
 
         //power jump
-        powerJumping = Input.GetKey(KeyCode.LeftControl);
+        if (powerJump)
+        {
+            powerJumping = Input.GetKey(KeyCode.LeftControl);
+        }
 
     }
 
