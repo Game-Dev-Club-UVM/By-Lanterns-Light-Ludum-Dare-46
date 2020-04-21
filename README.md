@@ -8,6 +8,7 @@
 ##Itch.io Download page  https://brobby50.itch.io/by-lanterns-light
 
 ###Created by
+
 Programming Team Robby Beattie, John Urbani, Alex Silence
 
 Art and Animation Team Spencer Prouty, Henry Prouty, Artur Smiechowski
