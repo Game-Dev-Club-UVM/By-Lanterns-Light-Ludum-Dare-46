@@ -59,10 +59,12 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private bool powerJump = false;
     [SerializeField] private bool pull = false;
 
-    //wall jumping
-    // TODO: Implement wall jumping, figure out a nice way that they can't use the same wall over and over again
-    // unless we want it to look very Super Meatboy like with wall jumping and sliding but that doesn't seem needed
-    [SerializeField] private bool wallJumpEnabled = false;
+    //sounds
+    [SerializeField] private AudioClip dashSound;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip pullSound;
+    [SerializeField] private AudioSource audio;
+
 
     private void Awake()
     {
@@ -161,6 +163,11 @@ public class PlayerMovementGravityChange : MonoBehaviour
     // Fixed Update called after Update every fixed frame
     void FixedUpdate()
     {
+        //die
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            oilMeter.setOil(0);
+        }
         //move horizontal 
         if (moveRequest)
         {
