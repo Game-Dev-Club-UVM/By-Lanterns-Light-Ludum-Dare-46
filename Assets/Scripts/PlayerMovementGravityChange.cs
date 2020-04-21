@@ -63,6 +63,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private AudioClip dashSound;
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip pullSound;
+    [SerializeField] private AudioSource audio;
 
 
     private void Awake()
