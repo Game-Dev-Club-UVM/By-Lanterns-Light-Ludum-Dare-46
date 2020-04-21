@@ -69,7 +69,7 @@ MonoBehaviour:
   deathTime: 1.5
   radiusNormal: 7
   radiusDeath: 100
-  intensityNormal: 2
+  intensityNormal: 1
   intensityDeath: 8
   timeSpent2: 0
   deathTime2: 0.5
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.8
   m_Color: {r: 0.2683339, g: 0.5172151, b: 0.8490566, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.8
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}

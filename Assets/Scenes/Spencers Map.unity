@@ -80702,27 +80702,27 @@ PrefabInstance:
     - target: {fileID: 7530077359536685757, guid: 66a6d5f0c498eaa41bdd0182d6b5c305,
         type: 3}
       propertyPath: m_text
-      value: 'Hold left ctrl and Jump to execute a Super Jump '
+      value: 'Hold Z and Jump to execute a Super Jump '
       objectReference: {fileID: 0}
     - target: {fileID: 7530077359536685757, guid: 66a6d5f0c498eaa41bdd0182d6b5c305,
         type: 3}
       propertyPath: m_fontSize
-      value: 0.9
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 7530077359536685757, guid: 66a6d5f0c498eaa41bdd0182d6b5c305,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 48
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7530077359536685757, guid: 66a6d5f0c498eaa41bdd0182d6b5c305,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7530077359536685757, guid: 66a6d5f0c498eaa41bdd0182d6b5c305,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7530077359536685757, guid: 66a6d5f0c498eaa41bdd0182d6b5c305,
         type: 3}

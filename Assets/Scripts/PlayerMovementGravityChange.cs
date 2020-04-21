@@ -159,7 +159,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
             //power jump
             if (powerJump)
             {
-                powerJumping = Input.GetKey(KeyCode.LeftControl);
+                powerJumping = Input.GetKey(KeyCode.Z);
             }
 
             if (isGrounded() && Input.GetButtonDown("Jump")) {

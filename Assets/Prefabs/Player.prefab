@@ -1221,7 +1221,7 @@ MonoBehaviour:
   fallMultiplier: 5
   lowJumpMultiplier: 5
   jumpingGravityMultiplier: 2.5
-  jumpForce: 600
+  jumpForce: 700
   powerJumpFallMultiplier: 4
   powerJumpLowJumpMultiplier: 4
   powerJumpJumpingGravityMultiplier: 1.15
