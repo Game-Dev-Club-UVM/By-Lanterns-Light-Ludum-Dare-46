@@ -15,7 +15,7 @@ Art and Animation Team Spencer Prouty, Henry Prouty, Artur Smiechowski
 
 Music and Sound Team Marcus Elia, Jeremiah Cory
 
-Idea Man Christain, Deluca
+Idea Man Christian DeLuca
 
 Play Testing Team Nate Whipple, Danis Ly
 
