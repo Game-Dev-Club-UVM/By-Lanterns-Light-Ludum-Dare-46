@@ -1,12 +1,21 @@
 # UVM-GameDev-Club-Ludum-Dare-46
-The University of Vermont's Game Development Club Ludum Dare 46 Game.
+##The University of Vermont's Game Development Club Ludum Dare 46 Game.
 
-Google Docs Ideas https://docs.google.com/document/d/1V1krS4Qb1DrRGFHumVZgNd7DtH25_GkKgTPbXLx3T7g/edit?usp=sharing
+‘By Lanterns Light’ is a 2D platformer about a cursed boy that must protect his lanterns’ flame and escape the Witches curse. Water is the natural enemy of the boy as well as harsh terrains that test his ability to navigate the world as he is pursued by the evil witch that cursed him. As the boy advances, he learns the true power of his lantern giving him multiple movement abilities that help him in his adventure.
 
-Unity Packages:
-Window->Package Manager 
-then search for each package below and install
-	2D Sprite
-	2D Tilemap Editor
-	Lightweight RP
+##Ludum Dare page https://ldjam.com/events/ludum-dare/46/by-lanterns-light-1
 
+##Itch.io Download page  https://brobby50.itch.io/by-lanterns-light
+
+###Created by
+Programming Team Robby Beattie, John Urbani, Alex Silence
+
+Art and Animation Team Spencer Prouty, Henry Prouty, Artur Smiechowski
+
+Music and Sound Team Marcus Elia, Jeremiah Cory
+
+Idea Man Christain, Deluca
+
+Play Testing Team Nate Whipple, Danis Ly
+
+University of Vermont’s Game Devlopement Club - Game Jam Ludum Dare 46
