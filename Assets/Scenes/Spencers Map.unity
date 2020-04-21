@@ -11920,7 +11920,7 @@ PrefabInstance:
     - target: {fileID: 1919966200283142693, guid: 5de4c35c3ba35d24983c79dd4ca68e1b,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4011533652719409602, guid: 5de4c35c3ba35d24983c79dd4ca68e1b,
         type: 3}
@@ -108624,7 +108624,7 @@ PrefabInstance:
     - target: {fileID: 1919966200283142693, guid: 5de4c35c3ba35d24983c79dd4ca68e1b,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4011533652719409602, guid: 5de4c35c3ba35d24983c79dd4ca68e1b,
         type: 3}
@@ -109640,6 +109640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OtherDrip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609513423535766132, guid: d50f52cf568d02d4794c62bbfe4c96aa,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7103881166551012650, guid: d50f52cf568d02d4794c62bbfe4c96aa,
         type: 3}
