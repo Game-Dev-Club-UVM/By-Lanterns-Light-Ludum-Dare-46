@@ -73,83 +73,89 @@ public class PlayerMovementGravityChange : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
-        //move horizontal 
-        if (dashState != DashState.Dashing && !Input.GetKeyDown(KeyCode.F) || cooldown)
+        if (oilMeter.getOil() > 0)
         {
-            character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Crouch"), Input.GetButtonDown("Jump"));
-        }
-
-        //dash
-        if (dash)
-        {
-            switch (dashState)
+            //move horizontal 
+            if (dashState != DashState.Dashing && !Input.GetKeyDown(KeyCode.F) || cooldown)
             {
-                case DashState.Ready:
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") != 0)
-                    {
-                        oilMeter.removeOil(dashOilCost);
-                        if (Input.GetAxis("Horizontal") > 0)
+                character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Crouch"), Input.GetButtonDown("Jump"));
+            }
+
+            //dash
+            if (dash)
+            {
+                switch (dashState)
+                {
+                    case DashState.Ready:
+                        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") != 0)
                         {
-                            rb.velocity = new Vector2(dashSpeed, 0.75f);
+                            oilMeter.removeOil(dashOilCost);
+                            if (Input.GetAxis("Horizontal") > 0)
+                            {
+                                rb.velocity = new Vector2(dashSpeed, 0.75f);
+                            }
+                            else if (Input.GetAxis("Horizontal") < 0)
+                            {
+                                rb.velocity = new Vector2(-dashSpeed, 0.75f);
+                            }
+                            dashState = DashState.Dashing;
                         }
-                        else if (Input.GetAxis("Horizontal") < 0)
+                        break;
+                    case DashState.Dashing:
+                        dashTimer += Time.deltaTime * 3;
+                        rb.velocity = new Vector2(rb.velocity.x, 0.75f);
+                        if (dashTimer >= maxDash)
                         {
-                            rb.velocity = new Vector2(-dashSpeed, 0.75f);
+                            dashTimer = maxDash;
+                            dashState = DashState.Cooldown;
                         }
-                        dashState = DashState.Dashing;
-                    }
-                    break;
-                case DashState.Dashing:
-                    dashTimer += Time.deltaTime * 3;
-                    rb.velocity = new Vector2(rb.velocity.x, 0.75f);
-                    if (dashTimer >= maxDash)
-                    {
-                        dashTimer = maxDash;
-                        dashState = DashState.Cooldown;
-                    }
-                    break;
-                case DashState.Cooldown:
-                    //dashTimer -= Time.deltaTime * 3;
-                    // See if we need to add anything that should reset dashes or to allow multiple dashes
-                    if (isGrounded())
-                    {
-                        dashTimer = 0;
-                        dashState = DashState.Ready;
-                    }
-                    break;
+                        break;
+                    case DashState.Cooldown:
+                        //dashTimer -= Time.deltaTime * 3;
+                        // See if we need to add anything that should reset dashes or to allow multiple dashes
+                        if (isGrounded())
+                        {
+                            dashTimer = 0;
+                            dashState = DashState.Ready;
+                        }
+                        break;
+                }
             }
-        }
 
-        //lantern dash
-        if (pull)
+            //lantern dash
+            if (pull)
+            {
+                if (Input.GetKey(KeyCode.F) && !cooldown && lanternDashTimer <= maxLanternDash)
+                {
+                    oilMeter.removeOil(lanternDashOilCost * Time.deltaTime);
+                    rb.velocity = (oilMeter.gameObject.transform.position - transform.position).normalized * lanternDashSpeed;
+                    lanternDashTimer += Time.deltaTime;
+                }
+                else if (lanternDashTimer >= maxLanternDash && !cooldown)
+                {
+                    cooldown = true;
+                }
+                else if (lanternDashTimer > 0)
+                {
+                    lanternDashTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    cooldown = false;
+                }
+            }
+
+            //power jump
+            if (powerJump)
+            {
+                powerJumping = Input.GetKey(KeyCode.LeftControl);
+            }
+
+        }
+        else
         {
-            if (Input.GetKey(KeyCode.F) && !cooldown && lanternDashTimer <= maxLanternDash)
-            {
-                oilMeter.removeOil(lanternDashOilCost * Time.deltaTime);
-                rb.velocity = (oilMeter.gameObject.transform.position - transform.position).normalized * lanternDashSpeed;
-                lanternDashTimer += Time.deltaTime;
-            }
-            else if (lanternDashTimer >= maxLanternDash && !cooldown)
-            {
-                cooldown = true;
-            }
-            else if (lanternDashTimer > 0)
-            {
-                lanternDashTimer -= Time.deltaTime;
-            }
-            else
-            {
-                cooldown = false;
-            }
+            rb.velocity = new Vector2(0f, 0f);
         }
-
-        //power jump
-        if (powerJump)
-        {
-            powerJumping = Input.GetKey(KeyCode.LeftControl);
-        }
-
     }
 
     // Fixed Update called after Update every fixed frame
