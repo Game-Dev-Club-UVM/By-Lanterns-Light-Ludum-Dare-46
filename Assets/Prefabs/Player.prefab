@@ -1241,9 +1241,9 @@ MonoBehaviour:
   dash: 0
   powerJump: 0
   pull: 0
-  dashSound: {fileID: 0}
-  jumpSound: {fileID: 0}
-  pullSound: {fileID: 0}
+  dashSound: {fileID: 8300000, guid: 741770b7653e2c742bc5ee0780062fc3, type: 3}
+  jumpSound: {fileID: 8300000, guid: 624c13c8d59171348bdd35bc760dff72, type: 3}
+  pullSound: {fileID: 8300000, guid: c52c1d833804a3b4b819d6912c2395c9, type: 3}
   audio: {fileID: 2190862512140340384}
 --- !u!82 &2190862512140340384
 AudioSource:

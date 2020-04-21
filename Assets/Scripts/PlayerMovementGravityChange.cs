@@ -65,13 +65,13 @@ public class PlayerMovementGravityChange : MonoBehaviour
     [SerializeField] private AudioClip pullSound;
     [SerializeField] private AudioSource audio;
 
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         character = GetComponent<CharacterController2D>();
         oilMeter = GameObject.Find("Lantern").GetComponent<Oil>();
     }
+
     // Update is called once per frame
     private void Update()
     {
@@ -92,6 +92,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") != 0)
                         {
                             oilMeter.removeOil(dashOilCost);
+                            StartCoroutine(playSound(dashSound));
                             if (Input.GetAxis("Horizontal") > 0)
                             {
                                 rb.velocity = new Vector2(dashSpeed, 0.75f);
@@ -146,6 +147,14 @@ public class PlayerMovementGravityChange : MonoBehaviour
                     cooldown = false;
                 }
             }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                StartCoroutine(playSound(pullSound));
+            }
+            if (Input.GetKeyUp(KeyCode.F) || lanternDashTimer >= maxLanternDash)
+            {
+                audio.Stop();
+            }
 
             //power jump
             if (powerJump)
@@ -153,6 +162,9 @@ public class PlayerMovementGravityChange : MonoBehaviour
                 powerJumping = Input.GetKey(KeyCode.LeftControl);
             }
 
+            if (isGrounded() && Input.GetButtonDown("Jump")) {
+                StartCoroutine(playSound(jumpSound));
+            }
         }
         else
         {
@@ -248,6 +260,13 @@ public class PlayerMovementGravityChange : MonoBehaviour
             dashState = DashState.Ready;
             dashTimer = 0;
         }
+    }
+
+    IEnumerator playSound(AudioClip theClip)
+    {
+        audio.clip = theClip;
+        audio.Play();
+        yield return new WaitForSeconds(audio.clip.length);
     }
 }
 
