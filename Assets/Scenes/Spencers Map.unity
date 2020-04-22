@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -276,9 +276,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.187
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 18.43
   m_PointLightOuterAngle: 18.43
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 19.63
   m_PointLightOuterRadius: 20.113626
   m_PointLightDistance: 3
   m_PointLightQuality: 1
@@ -9614,9 +9614,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.187
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -9627,7 +9627,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 29.61
   m_PointLightOuterAngle: 29.61
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 9.3
   m_PointLightOuterRadius: 9.862109
   m_PointLightDistance: 3
   m_PointLightQuality: 1
@@ -9917,9 +9917,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.187
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -9928,9 +9928,9 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 11.84
+  m_PointLightInnerAngle: 30.8
   m_PointLightOuterAngle: 30.8
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 9.468289
   m_PointLightOuterRadius: 9.468289
   m_PointLightDistance: 3
   m_PointLightQuality: 1
@@ -10867,9 +10867,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.187
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -10880,7 +10880,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 8.64
   m_PointLightOuterAngle: 8.64
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 11.119982
   m_PointLightOuterRadius: 11.6103
   m_PointLightDistance: 3
   m_PointLightQuality: 1
@@ -11491,9 +11491,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.187
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -11502,10 +11502,10 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 10.34
+  m_PointLightInnerAngle: 26.38
   m_PointLightOuterAngle: 26.38
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 23.915411
+  m_PointLightInnerRadius: 23.022434
+  m_PointLightOuterRadius: 24.438019
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -12139,9 +12139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.187
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -12152,7 +12152,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 29.61
   m_PointLightOuterAngle: 29.61
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 10.79
   m_PointLightOuterRadius: 11.285606
   m_PointLightDistance: 3
   m_PointLightQuality: 1
@@ -80023,7 +80023,7 @@ Tilemap:
     m_Data: {r: 1.96067e-40, g: 1.96067e-40, b: 1.96067e-40, a: 1.96067e-40}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.3584906, g: 0.22650205, b: 0.12344251, a: 1}
+  m_Color: {r: 0.7176471, g: 0.43137255, b: 0.18431373, a: 1}
   m_Origin: {x: -157, y: -72, z: 0}
   m_Size: {x: 216, y: 83, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -80603,9 +80603,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.187
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -80616,7 +80616,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 30.8
   m_PointLightOuterAngle: 30.8
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 8.279149
   m_PointLightOuterRadius: 8.48639
   m_PointLightDistance: 3
   m_PointLightQuality: 1
@@ -108264,9 +108264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.187
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -108275,9 +108275,9 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 20.019999
+  m_PointLightInnerAngle: 27.58
   m_PointLightOuterAngle: 27.58
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 14.83
   m_PointLightOuterRadius: 14.955386
   m_PointLightDistance: 3
   m_PointLightQuality: 1
