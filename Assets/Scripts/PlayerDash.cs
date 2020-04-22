@@ -23,7 +23,7 @@ public class PlayerDash : MonoBehaviour
         switch (dashState)
         {
             case DashState.Ready:
-                var isDashKeyDown = Input.GetKeyDown(KeyCode.LeftShift);
+                var isDashKeyDown = Input.GetButtonDown("Fire1");
                 if (isDashKeyDown)
                 {
                     savedVelocity = new Vector2(rb.velocity.x, 0.01f);

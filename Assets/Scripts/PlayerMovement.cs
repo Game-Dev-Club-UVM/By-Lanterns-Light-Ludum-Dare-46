@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //move horizontal 
-        character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Crouch"), Input.GetButtonDown("Jump"));
+        character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Fire3"), Input.GetButtonDown("Jump"));
 
         //dash
     }

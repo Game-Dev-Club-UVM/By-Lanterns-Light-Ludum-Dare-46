@@ -21,7 +21,7 @@ public class PlayerAnimator : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Pull"))
+        if (Input.GetButton("Fire2"))
         {
             animator.SetBool("lanternFloat", true);
         } 
@@ -30,7 +30,7 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetBool("lanternFloat", false);
         }
 
-        if (Input.GetButton("Dash") && Input.GetAxis("Horizontal") != 0)
+        if (Input.GetButton("Fire1") && Input.GetAxis("Horizontal") != 0)
         {
             animator.SetBool("dashing", true);
         }
@@ -50,7 +50,7 @@ public class PlayerAnimator : MonoBehaviour
         // Jumping trigger animations
         if (Input.GetButton("Jump") && animator.GetBool("onGround"))
         {
-            if (Input.GetKey(KeyCode.LeftControl))
+            if (Input.GetButton("Fire3"))
             {
                 animator.SetBool("powerJump", true);
             }

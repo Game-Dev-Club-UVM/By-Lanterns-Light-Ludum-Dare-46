@@ -78,9 +78,9 @@ public class PlayerMovementGravityChange : MonoBehaviour
         if (oilMeter.getOil() > 0)
         {
             //move horizontal 
-            if (dashState != DashState.Dashing && !Input.GetKeyDown(KeyCode.F) || cooldown)
+            if (dashState != DashState.Dashing && !Input.GetButtonDown("Fire1") || cooldown)
             {
-                character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Crouch"), Input.GetButtonDown("Jump"));
+                character.Move(Input.GetAxis("Horizontal"), Input.GetButton("Fire3"), Input.GetButtonDown("Jump"));
             }
 
             //dash
@@ -89,7 +89,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
                 switch (dashState)
                 {
                     case DashState.Ready:
-                        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxis("Horizontal") != 0)
+                        if (Input.GetButton("Fire1") && Input.GetAxis("Horizontal") != 0)
                         {
                             oilMeter.removeOil(dashOilCost);
                             StartCoroutine(playSound(dashSound));
@@ -128,7 +128,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
             //lantern dash
             if (pull)
             {
-                if (Input.GetKey(KeyCode.F) && !cooldown && lanternDashTimer <= maxLanternDash)
+                if (Input.GetButton("Fire2") && !cooldown && lanternDashTimer <= maxLanternDash)
                 {
                     oilMeter.removeOil(lanternDashOilCost * Time.deltaTime);
                     rb.velocity = (oilMeter.gameObject.transform.position - transform.position).normalized * lanternDashSpeed;
@@ -147,11 +147,11 @@ public class PlayerMovementGravityChange : MonoBehaviour
                     cooldown = false;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetButtonDown("Fire2"))
             {
                 StartCoroutine(playSound(pullSound));
             }
-            if (Input.GetKeyUp(KeyCode.F) || lanternDashTimer >= maxLanternDash)
+            if (Input.GetButtonUp("Fire2") || lanternDashTimer >= maxLanternDash)
             {
                 audio.Stop();
             }
@@ -159,7 +159,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
             //power jump
             if (powerJump)
             {
-                powerJumping = Input.GetKey(KeyCode.Z);
+                powerJumping = Input.GetButton("Fire3");
             }
 
             if (isGrounded() && Input.GetButtonDown("Jump")) {

@@ -486,7 +486,7 @@ InputManager:
     axis: 5
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Crouch
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -502,7 +502,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Pull
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -518,7 +518,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Dash
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
