@@ -18,9 +18,12 @@ public class Oil : MonoBehaviour
     [SerializeField] float intensityDeath = 8;
     [SerializeField] float timeSpent2 = 0;
     [SerializeField] float deathTime2 = 1;
+
+    [SerializeField] Light2D deathLight;
     bool explode = false;
     private void Start()
     {
+        Cursor.visible = false;
         oilBar = GameObject.FindGameObjectWithTag("OilBar").GetComponent<OilBar>();
         oilBar.SetMaxHealth(oilData.maxOil);
         oilBar.SetHealth(oilData.currentOil);
@@ -49,21 +52,25 @@ public class Oil : MonoBehaviour
     {
         if (explode && timeSpent < deathTime)
         {
+            deathLight.enabled = true;
             timeSpent += Time.deltaTime;
-            lanternLight.pointLightOuterRadius = Mathf.Lerp(radiusNormal, radiusDeath, timeSpent / deathTime);
-            lanternLight.intensity = Mathf.Lerp(intensityNormal, intensityDeath, timeSpent / deathTime);
+            deathLight.pointLightOuterRadius = Mathf.Lerp(radiusNormal, radiusDeath, timeSpent / deathTime);
+            deathLight.intensity = Mathf.Lerp(intensityNormal, intensityDeath, timeSpent / deathTime);
         } 
-        else if (lanternLight.pointLightOuterRadius != radiusNormal)
+        else if (deathLight.pointLightOuterRadius != radiusNormal)
         {
+            deathLight.enabled = true;
             timeSpent2 += Time.deltaTime;
-            lanternLight.pointLightOuterRadius = Mathf.Lerp(radiusDeath, radiusNormal, timeSpent2 / deathTime2);
-            lanternLight.intensity = Mathf.Lerp(intensityDeath, intensityNormal, timeSpent2 / deathTime2);
+            deathLight.pointLightOuterRadius = Mathf.Lerp(radiusDeath, radiusNormal, timeSpent2 / deathTime2);
+            deathLight.intensity = Mathf.Lerp(intensityDeath, intensityNormal, timeSpent2 / deathTime2);
         } 
         else
         {
+            
             timeSpent2 = 0;
-            lanternLight.pointLightOuterRadius = radiusNormal;
-            lanternLight.intensity = intensityNormal;
+            deathLight.pointLightOuterRadius = radiusNormal;
+            deathLight.intensity = intensityNormal;
+            deathLight.enabled = false;
         }
     }
 
@@ -75,7 +82,7 @@ public class Oil : MonoBehaviour
         setOil(oilData.maxOil);
         timeSpent = 0;
         explode = false;
-
+        deathLight.enabled = false;
         //yield return new WaitForSeconds(deathTime);
 
         //lanternLight.pointLightOuterRadius = radiusNormal;

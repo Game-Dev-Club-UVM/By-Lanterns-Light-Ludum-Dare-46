@@ -89,7 +89,7 @@ public class PlayerMovementGravityChange : MonoBehaviour
                 switch (dashState)
                 {
                     case DashState.Ready:
-                        if (Input.GetButton("Fire1") && Input.GetAxis("Horizontal") != 0)
+                        if (Input.GetButtonDown("Fire1") && Input.GetAxis("Horizontal") != 0)
                         {
                             oilMeter.removeOil(dashOilCost);
                             StartCoroutine(playSound(dashSound));
