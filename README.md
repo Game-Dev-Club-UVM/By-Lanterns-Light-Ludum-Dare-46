@@ -1,5 +1,5 @@
 # UVM-GameDev-Club-Ludum-Dare-46
-##The University of Vermont's Game Development Club Ludum Dare 46 Game.
+### The University of Vermont's Game Development Club Ludum Dare 46 Game.
 
 ‘By Lanterns Light’ is a 2D platformer about a cursed boy that must protect his lanterns’ flame and escape the Witches curse. Water is the natural enemy of the boy as well as harsh terrains that test his ability to navigate the world as he is pursued by the evil witch that cursed him. As the boy advances, he learns the true power of his lantern giving him multiple movement abilities that help him in his adventure.
 
